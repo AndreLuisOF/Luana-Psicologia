@@ -1,0 +1,881 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS / CORES / TIPOGRAFIA
+   ========================================================================== */
+:root {
+  --bg-light: #f9f6f0; /* Creme de fundo principal */
+  --bg-blue: #e3edf7; /* Azul claro das seções secundárias */
+  --primary-blue: #2c4a6f; /* Azul escuro institucional */
+  --text-dark: #333333; /* Texto principal */
+  --text-muted: #666666; /* Texto secundário */
+  --white: #ffffff;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Cria uma folga no topo para links âncora, compensando a altura do header fixo */
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   2. HEADER / NAVEGAÇÃO (DESKTOP PADRÃO)
+   ========================================================================== */
+header {
+  background-color: var(--primary-blue);
+  padding: 15px 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.header-scrolled {
+  padding: 10px 5%;
+  box-shadow: 0 4px 20px rgba(44, 74, 111, 0.15);
+  background-color: rgba(44, 74, 111, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  color: var(--white);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+nav ul li a {
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--white);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle,
+.mobile-only-icon {
+  display: none;
+}
+
+.btn-header {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-header:hover {
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (DESKTOP)
+   ========================================================================== */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 140px 5% 100px 5%;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  background-color: transparent !important;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: transparent !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 450px;
+  display: block;
+  background-color: transparent !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0px 10px 20px rgba(44, 74, 111, 0.12)) !important;
+}
+
+.hero-content {
+  flex: 1.2;
+}
+
+.hero-content h1 {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: var(--primary-blue);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.hero-content .subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.hero-content h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 12px 35px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary:hover {
+  background-color: #1e334f;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. TÍTULOS DE SEÇÃO
+   ========================================================================== */
+.section-title {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--primary-blue);
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ==========================================================================
+   5. SEÇÃO: ESPECIALIDADES (TRIANGULAR DESKTOP)
+   ========================================================================== */
+.especialidades {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 5%;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 50px 35px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(44, 74, 111, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1 1 calc(50% - 20px);
+  min-width: 340px;
+  max-width: 460px;
+  transition:
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(44, 74, 111, 0.1);
+}
+
+.card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   6. SEÇÃO: POR QUE ESCOLHER
+   ========================================================================== */
+.por-que-escolher {
+  background-color: var(--white);
+  padding: 100px 5%;
+}
+
+.pq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.pq-image {
+  flex: 1;
+}
+
+.pq-image img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.pq-content {
+  flex: 1.2;
+}
+
+.pq-content p {
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.pq-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.pq-list li {
+  font-size: 0.95rem;
+}
+
+.pq-list strong {
+  color: var(--primary-blue);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   7. SEÇÃO: DEPOIMENTOS
+   ========================================================================== */
+.depoimentos {
+  background-color: var(--bg-light);
+  padding: 100px 5%;
+}
+
+.depoimentos-container {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.depoimento-card {
+  background: var(--white);
+  padding: 40px 35px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.depoimento-card p {
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.depoimento-card h4 {
+  font-size: 0.9rem;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.depoimento-card span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+/* ==========================================================================
+   8. FOOTER UNIFICADO (COM CONDIÇÃO DESKTOP)
+   ========================================================================== */
+footer {
+  background-color: var(--bg-blue);
+  border-top: 1px solid #bccee0;
+  padding: 60px 5% 20px;
+  color: var(--text-dark);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.footer-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.footer-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.desktop-only-form {
+  display: flex !important;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-only-box {
+  display: none !important;
+}
+
+/* Caixa do WhatsApp Ajustada para Centralização Perfeita */
+.footer-wpp-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(44, 74, 111, 0.05);
+  text-align: center;
+}
+
+.footer-wpp-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.footer-wpp-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Botão Blindado Contra Quebras no iPhone */
+.btn-footer-wpp {
+  background-color: #25d366;
+  color: var(--white);
+  padding: 16px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-footer-wpp:hover {
+  background-color: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-footer-wpp i {
+  display: inline-block;
+  font-size: 1.2rem;
+  position: static;
+}
+
+/* Redes Sociais Padrão Computador */
+.social-desktop {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-mobile {
+  display: none !important;
+}
+
+.form-contato input,
+.form-contato textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #bccee0;
+  background-color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+  border-color: var(--primary-blue);
+}
+
+.btn-agenda {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 14px 25px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-agenda:hover {
+  background-color: #1e334f;
+  transform: translateY(-1px);
+}
+
+.info-item {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-item strong {
+  color: var(--primary-blue);
+}
+
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  font-size: 0.9rem;
+  color: var(--primary-blue);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid #bccee0;
+  padding-top: 25px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-bottom p {
+  margin-bottom: 5px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES (SISTEMA DE RESPONSIVIDADE EM CASCATA)
+   ========================================================================== */
+
+/* --- TABLETS E LAPTOPS PEQUENOS (Até 1024px) --- */
+@media (max-width: 1024px) {
+  .hero,
+  .pq-container {
+    gap: 40px;
+  }
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* --- SMARTPHONES E TABLETS EM PÉ (Até 768px - FOCO MOBILE) --- */
+@media (max-width: 768px) {
+  .hero,
+  .especialidades,
+  .por-que-escolher,
+  .depoimentos,
+  footer {
+    padding: 60px 6% !important;
+  }
+
+  html {
+    scroll-padding-top: 130px; /* Um pouco maior no mobile para dar mais respiro */
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    line-height: 1.3;
+    text-align: center !important;
+  }
+
+  /* Menu Hamburguer Ativo */
+  header {
+    padding: 15px 6%;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 74, 111, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 30px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .nav-menu.menu-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.1rem;
+  }
+
+  /* Header WhatsApp Verde */
+  .btn-header {
+    background-color: #25d366 !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
+
+  .btn-header:hover {
+    background-color: #20ba59 !important;
+    transform: translateY(-1px);
+  }
+
+  /* Hero Section Mobile */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 140px !important;
+    padding-bottom: 40px !important;
+    gap: 40px;
+  }
+
+  body > section:first-of-type {
+    padding-top: 140px !important;
+  }
+
+  .hero-image {
+    order: 1;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .hero .btn-primary {
+    display: none !important;
+  }
+
+  /* Grid em Coluna Única */
+  .cards-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 35px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 35px 25px;
+  }
+
+  /* Sobre Mim Mobile */
+  .pq-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .por-que-escolher .pq-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pq-content {
+    order: 1;
+  }
+
+  .pq-image {
+    order: 2;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .pq-content p {
+    text-align: justify;
+  }
+
+  .pq-list {
+    text-align: left;
+    gap: 20px;
+    padding-left: 0;
+  }
+
+  /* Depoimentos Mobile */
+  .depoimentos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 35px;
+  }
+
+  .depoimento-card {
+    padding: 30px 25px;
+  }
+
+  /* Condicionais do Rodapé Mobile */
+  .desktop-only-form {
+    display: none !important;
+  }
+
+  .mobile-only-box {
+    display: flex !important;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    text-align: center;
+  }
+
+  .footer-wpp-box {
+    padding: 35px 20px;
+  }
+
+  .btn-footer-wpp {
+    width: 100%;
+    padding: 15px 15px;
+  }
+
+  /* Redes Sociais no Mobile: Troca de Web para App Nativo */
+  .social-desktop {
+    display: none !important;
+  }
+
+  .social-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background-color: rgba(44, 74, 111, 0.05);
+    border-radius: 20px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 25px;
+  }
+
+  .especialidades,
+  .depoimentos,
+  footer {
+    padding: 60px 6% !important;
+  }
+}
+
+/* --- DISPOSITIVOS ULTRA COMPACTOS (Até 375px) --- */
+@media (max-width: 375px) {
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+}
